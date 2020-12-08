@@ -5,11 +5,13 @@ import "../../App.css";
 export class Navbar extends Component {
   render() {
     return (
-      <navbar textAlign="center">
+      <div className="navBar">
         <h1>Reactomon</h1>
-        <Link to="/pokemons">Pokemons</Link>
-        <Link to="/types">Types</Link>
-      </navbar>
+        <div className="links">
+          <Link to="/pokemons">Pokemons</Link>
+          <Link to="/types">Types</Link>
+        </div>
+      </div>
     );
   }
 }
