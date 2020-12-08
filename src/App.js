@@ -10,9 +10,9 @@ class App extends Component {
         <div className="App">
           <div className="container">
             <Navbar />
-            {/* <Route path="/pokemons" component={PokemonList} />
+            <Route path="/pokemons" component={PokemonList} />
             <Route path="/types" component={TypeList} />
-            <Route path="/pokemon/:id" component={PokemonDetail} /> */}
+            <Route path="/pokemon/:id" component={PokemonDetail} />
           </div>
         </div>
       </Router>
