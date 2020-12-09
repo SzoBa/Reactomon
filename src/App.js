@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/layout/Navbar";
 import MainPage from "./components/pages/MainPage";
+import PokemonList from "./components/pages/PokemonList";
 
 class App extends Component {
   render() {
@@ -12,8 +13,8 @@ class App extends Component {
           <div className="container">
             <Navbar />
             <Route exact path="/" component={MainPage} />
-            {/* <Route path="/pokemons" component={PokemonList} />
-            <Route path="/types" component={TypeList} />
+            <Route path="/pokemons" component={PokemonList} />
+            {/* <Route path="/types" component={TypeList} />
             <Route path="/pokemon/:id" component={PokemonDetail} /> */}
           </div>
         </div>
