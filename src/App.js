@@ -5,6 +5,7 @@ import Navbar from "./components/layout/Navbar";
 import MainPage from "./components/pages/MainPage";
 import PokemonList from "./components/pages/PokemonList";
 import TypeList from "./components/pages/TypeList";
+import PokemonDetail from "./components/pages/PokemonDetail";
 
 class App extends Component {
   render() {
@@ -16,7 +17,7 @@ class App extends Component {
             <Route exact path="/" component={MainPage} />
             <Route path="/pokemons" component={PokemonList} />
             <Route path="/types" component={TypeList} />
-            {/* <Route path="/pokemon/:id" component={PokemonDetail} /> */}
+            <Route path="/pokemon/:id" component={PokemonDetail} />
           </div>
         </div>
       </Router>

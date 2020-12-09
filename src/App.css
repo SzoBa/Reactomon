@@ -74,12 +74,25 @@ p {
 }
 
 .listItem,
-.typeListItem {
+.typeListItem,
+.detailItem {
   font-size: 1em;
   margin: 1%;
 }
 
 .listItem > a,
-.typeListItem > a {
+.typeListItem > a,
+.detailItem > a {
   font-size: 1em;
+}
+
+.detailItem > p {
+  margin: 1%;
+  font-size: 2em;
+}
+
+.detailedData > p,
+.simpleData > p {
+  margin: 0;
+  font-size: 2em;
 }
