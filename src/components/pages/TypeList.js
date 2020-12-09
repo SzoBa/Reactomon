@@ -24,7 +24,7 @@ class TypeList extends Component {
 }
 
 TypeList.propTypes = {
-  types: PropTypes.array.isRequired,
+  types: PropTypes.array,
 };
 
 export default TypeList;
