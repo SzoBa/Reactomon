@@ -72,3 +72,12 @@ p {
 .mainPage > p {
   font-size: 2em;
 }
+
+.listItem {
+  font-size: 1em;
+  margin: 1%;
+}
+
+.listItem > a {
+  font-size: 1em;
+}
