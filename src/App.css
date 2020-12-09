@@ -4,8 +4,9 @@
   padding: 0;
 }
 
-.App {
-  background: url("./components/images/background.jpeg");
+html {
+  background: url("./components/images/background.jpg") no-repeat;
+  background-size: cover;
 }
 
 body {
@@ -56,4 +57,16 @@ a:hover {
   display: flex;
   justify-content: space-evenly;
   padding: 5px;
+}
+
+.mainPage > h1,
+p {
+  color: white;
+  font-size: 4em;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-align: center;
+}
+
+.mainPage > p {
+  font-size: 2em;
 }
