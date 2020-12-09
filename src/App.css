@@ -73,11 +73,13 @@ p {
   font-size: 2em;
 }
 
-.listItem {
+.listItem,
+.typeListItem {
   font-size: 1em;
   margin: 1%;
 }
 
-.listItem > a {
+.listItem > a,
+.typeListItem > a {
   font-size: 1em;
 }
