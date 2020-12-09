@@ -24,7 +24,7 @@ class PokemonList extends Component {
 }
 
 PokemonList.propTypes = {
-  pokemons: PropTypes.array,
+  pokemon: PropTypes.object,
 };
 
 export default PokemonList;
