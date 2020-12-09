@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/layout/Navbar";
+import MainPage from "./components/pages/MainPage";
 
 class App extends Component {
   render() {
@@ -10,9 +11,10 @@ class App extends Component {
         <div className="App">
           <div className="container">
             <Navbar />
-            <Route path="/pokemons" component={PokemonList} />
+            <Route exact path="/" component={MainPage} />
+            {/* <Route path="/pokemons" component={PokemonList} />
             <Route path="/types" component={TypeList} />
-            <Route path="/pokemon/:id" component={PokemonDetail} />
+            <Route path="/pokemon/:id" component={PokemonDetail} /> */}
           </div>
         </div>
       </Router>
