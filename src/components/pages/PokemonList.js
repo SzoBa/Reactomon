@@ -17,14 +17,14 @@ class PokemonList extends Component {
   render() {
     return this.state.pokemons.map((pokemon) => (
       <div>
-        <PokemonListItem pokemon={pokemon} />
+        <PokemonListItem key={pokemon.toString()} pokemon={pokemon} />
       </div>
     ));
   }
 }
 
 PokemonList.propTypes = {
-  pokemons: PropTypes.array.isRequired,
+  pokemons: PropTypes.array,
 };
 
 export default PokemonList;
