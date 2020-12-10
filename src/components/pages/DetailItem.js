@@ -1,19 +1,16 @@
-import React, { Component } from "react";
-// import PropTypes from "prop-types";
+import React from "react";
 import "../../App.css";
 
-class DetailItem extends Component {
-  render() {
-    return Object.entries(this.props.detailData).map(([key, value], index) => (
-      <div className="detailedData" key={key}>
-        <React.Fragment>
-          <p>
-            {this.props.attribute} : {typeof value}
-          </p>
-        </React.Fragment>
-      </div>
-    ));
-  }
-}
+const DetailItem = (props) => {
+  return Object.entries(props.detailData).map(([key, value]) => (
+    <div className="detailedData" key={key}>
+      <React.Fragment>
+        <p>
+          {props.attribute} : {typeof value}
+        </p>
+      </React.Fragment>
+    </div>
+  ));
+};
 
 export default DetailItem;
