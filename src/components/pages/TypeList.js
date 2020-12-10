@@ -15,9 +15,9 @@ class TypeList extends Component {
   }
 
   render() {
-    return this.state.types.map((type) => (
-      <div>
-        <TypeListItem key={type.toString()} type={type} />
+    return this.state.types.map((type, index) => (
+      <div key={index}>
+        <TypeListItem type={type} />
       </div>
     ));
   }

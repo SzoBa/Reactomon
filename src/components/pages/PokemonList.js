@@ -15,9 +15,9 @@ class PokemonList extends Component {
   }
 
   render() {
-    return this.state.pokemons.map((pokemon) => (
-      <div>
-        <PokemonListItem key={pokemon.toString()} pokemon={pokemon} />
+    return this.state.pokemons.map((pokemon, index) => (
+      <div key={index}>
+        <PokemonListItem pokemon={pokemon} />
       </div>
     ));
   }

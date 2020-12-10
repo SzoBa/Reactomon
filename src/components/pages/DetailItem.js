@@ -6,8 +6,10 @@ class DetailItem extends Component {
   render() {
     return Object.entries(this.props.detailData).map(([key, value], index) => (
       <div className="detailedData" key={key}>
-        <React.Fragment key={key}>
-          {key} : {typeof value}
+        <React.Fragment>
+          <p>
+            {this.props.attribute} : {typeof value}
+          </p>
         </React.Fragment>
       </div>
     ));

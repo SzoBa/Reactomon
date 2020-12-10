@@ -21,25 +21,23 @@ class PokemonDetail extends Component {
   render() {
     return Object.entries(this.state.details).map(([key, value], index) => (
       <div className="detailItem" key={key}>
-        <p>
-          {key}:
-          <React.Fragment key={key}>
-            {key === "abilities"}
-            {typeof value === "number" ||
-            typeof value === "string" ||
-            typeof value === "boolean" ? (
-              <SimpleItem simpleData={value} />
-            ) : (
-              <DetailItem detailData={value} />
-            )}
-          </React.Fragment>
-        </p>
+        <React.Fragment>
+          {typeof value === "number" ||
+          typeof value === "string" ||
+          typeof value === "boolean" ? (
+            <SimpleItem attribute={key} simpleData={value} />
+          ) : (
+            ""
+            /*<DetailItem attribute={key} detailData={value} />*/
+          )}
+        </React.Fragment>
       </div>
     ));
   }
 }
 
 PokemonDetail.propTypes = {
+  attribute: PropTypes.string,
   simpleData: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,

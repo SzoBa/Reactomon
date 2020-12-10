@@ -75,7 +75,9 @@ p {
 
 .listItem,
 .typeListItem,
-.detailItem {
+.detailItem,
+.detailedData,
+.simpleData {
   font-size: 1em;
   margin: 1%;
 }
@@ -88,11 +90,11 @@ p {
 
 .detailItem > p {
   margin: 1%;
-  font-size: 2em;
+  font-size: 1em;
 }
 
 .detailedData > p,
 .simpleData > p {
   margin: 0;
-  font-size: 2em;
+  font-size: 1em;
 }
