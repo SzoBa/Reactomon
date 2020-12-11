@@ -1,30 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
 import PokemonListItem from "./PokemonListItem";
-import axios from "axios";
-import PropTypes from "prop-types";
+import { useFetch } from "../../hooks/useFetch";
 
-class PokemonList extends Component {
-  state = {
-    pokemons: [],
-  };
+const PokemonList = (props) => {
+  const [isLoading, pokemons] = useFetch("https://pokeapi.co/api/v2/pokemon");
 
-  componentDidMount() {
-    axios
-      .get("https://pokeapi.co/api/v2/pokemon")
-      .then((res) => this.setState({ pokemons: res.data.results }));
-  }
-
-  render() {
-    return this.state.pokemons.map((pokemon, index) => (
+  if (!isLoading) {
+    return pokemons.results.map((pokemon, index) => (
       <div key={index}>
         <PokemonListItem pokemon={pokemon} />
       </div>
     ));
+  } else {
+    return (
+      <div className="detailItem">
+        <p>Problem occurred during loading!</p>
+      </div>
+    );
   }
-}
-
-PokemonList.propTypes = {
-  pokemon: PropTypes.object,
 };
 
 export default PokemonList;
