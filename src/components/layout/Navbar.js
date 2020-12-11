@@ -27,7 +27,7 @@ const NavbarLink = styled.a`
   font-weight: bold;
   font-size: 2em;
   border-radius: 20px;
-  &::hover {
+  &:hover {
     color: palevioletred;
   }
 `;

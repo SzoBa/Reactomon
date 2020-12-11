@@ -1,5 +1,3 @@
-import React, { Component } from "react";
-// import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../../App.css";
 import styled from "styled-components";
@@ -17,27 +15,26 @@ const ListItemLink = styled.a`
   font-size: 1em;
   font-weight: bold;
   color: white;
+
   text-decoration: none;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   text-align: center;
-  &::hover {
+  &:hover {
     color: palevioletred;
   }
 `;
 
-class TypeListItem extends Component {
-  render() {
-    const { name, url } = this.props.type;
-    const test = url;
+const TypeListItem = (props) => {
+  const { name, url } = props.type;
+  const test = url;
 
-    return (
-      <ListItemText>
-        Type name: {name} - Original detail:{" "}
-        <ListItemLink href={test}>Go to page</ListItemLink>
-      </ListItemText>
-    );
-  }
-}
+  return (
+    <ListItemText>
+      Type name: {name} - Original detail:{" "}
+      <ListItemLink href={test}>Go to page</ListItemLink>
+    </ListItemText>
+  );
+};
 
 TypeListItem.propTypes = {
   type: PropTypes.object.isRequired,
