@@ -8,7 +8,7 @@ const TypeList = (props) => {
   if (!isLoading) {
     return types.results.map((type, index) => (
       <div key={index}>
-        <TypeListItem type={type} />
+        <TypeListItem type={type} index={index} />
       </div>
     ));
   } else {

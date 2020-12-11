@@ -15,13 +15,32 @@ const ListItemLink = styled.a`
   font-size: 1em;
   font-weight: bold;
   color: white;
-
   text-decoration: none;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   text-align: center;
   &:hover {
-    color: palevioletred;
+    color: ${(props) => {
+      if (props.index % 3 === 0) {
+        return "blue";
+      } else if (props.index % 3 === 1) {
+        return "orange";
+      } else {
+        return "red";
+      }
+    }};
   }
+`;
+
+const TypeName = styled.span`
+  color: ${(props) => {
+    if (props.index % 3 === 0) {
+      return "cyan";
+    } else if (props.index % 3 === 1) {
+      return "yellow";
+    } else {
+      return "pink";
+    }
+  }};
 `;
 
 const TypeListItem = (props) => {
@@ -29,9 +48,15 @@ const TypeListItem = (props) => {
   const test = url;
 
   return (
-    <ListItemText>
-      Type name: {name} - Original detail:{" "}
-      <ListItemLink href={test}>Go to page</ListItemLink>
+    <ListItemText name={name}>
+      Type name:{" "}
+      <TypeName index={props.index} name={name}>
+        {name} -
+      </TypeName>{" "}
+      - Original detail:{" "}
+      <ListItemLink index={props.index} href={test}>
+        Go to page
+      </ListItemLink>
     </ListItemText>
   );
 };
