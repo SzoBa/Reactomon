@@ -2,6 +2,22 @@ import PropTypes from "prop-types";
 import "../../App.css";
 import styled from "styled-components";
 
+const ListItemCard = styled.div`
+  font-family: arial;
+  border: solid black 1px;
+  border-radius: 15px;
+  height: 80px;
+  width: 250px;
+  text-align: center;
+  margin: 5px 0;
+  background-color: rgba(255, 115, 110, 0.9);
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
+  &:hover {
+    box-shadow: 8px 8px 16px 0 rgba(0, 0, 0, 0.9);
+  }
+`;
+
 const ListItemText = styled.p`
   font-size: 1em;
   margin: 1%;
@@ -48,16 +64,21 @@ const TypeListItem = (props) => {
   const test = url;
 
   return (
-    <ListItemText name={name}>
-      Type name:{" "}
-      <TypeName index={props.index} name={name}>
-        {name} -
-      </TypeName>{" "}
-      - Original detail:{" "}
-      <ListItemLink index={props.index} href={test}>
-        Go to page
-      </ListItemLink>
-    </ListItemText>
+    <ListItemCard>
+      <ListItemText name={name}>
+        Type name:{" "}
+        <TypeName index={props.index} name={name}>
+          {name}
+        </TypeName>{" "}
+      </ListItemText>
+      <ListItemText>
+        Original detail:{" "}
+        <ListItemLink index={props.index} href={test}>
+          Go to page
+        </ListItemLink>
+      </ListItemText>
+      <button>Catch</button>
+    </ListItemCard>
   );
 };
 
