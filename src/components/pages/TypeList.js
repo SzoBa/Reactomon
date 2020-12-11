@@ -1,30 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
+import { useFetch } from "../../hooks/useFetch";
 import TypeListItem from "./TypeListItem";
-import PropTypes from "prop-types";
-import axios from "axios";
 
-class TypeList extends Component {
-  state = {
-    types: [],
-  };
+const TypeList = (props) => {
+  const [isLoading, types] = useFetch("https://pokeapi.co/api/v2/type");
 
-  componentDidMount() {
-    axios
-      .get("https://pokeapi.co/api/v2/type")
-      .then((res) => this.setState({ types: res.data.results }));
-  }
-
-  render() {
-    return this.state.types.map((type, index) => (
+  if (!isLoading) {
+    return types.results.map((type, index) => (
       <div key={index}>
         <TypeListItem type={type} />
       </div>
     ));
+  } else {
+    return (
+      <div className="detailItem">
+        <p>Problem occurred during loading!</p>
+      </div>
+    );
   }
-}
-
-TypeList.propTypes = {
-  types: PropTypes.array,
 };
 
 export default TypeList;
