@@ -4,18 +4,28 @@
   padding: 0;
 }
 
+html {
+  background: url("./components/images/background.jpg") no-repeat;
+  background-size: cover;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
 }
 
 a {
-  color: darkcyan;
+  color: white;
   text-decoration: none;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 2em;
+  border-radius: 20px;
 }
 
 a:hover {
-  color: aqua;
+  color: palevioletred;
 }
 
 .container {
@@ -31,4 +41,60 @@ a:hover {
 .btn:hover {
   background: white;
   color: green;
+}
+
+.navBar {
+  text-align: center;
+}
+
+.navBar > h1 {
+  color: white;
+  font-size: 4em;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  padding-left: 3%;
+}
+
+.links {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px;
+}
+
+.mainPage > h1,
+p {
+  margin-top: 3%;
+  color: white;
+  font-size: 4em;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-align: center;
+}
+
+.mainPage > p {
+  font-size: 2em;
+}
+
+.listItem,
+.typeListItem,
+.detailItem,
+.detailedData,
+.simpleData {
+  font-size: 1em;
+  margin: 1%;
+}
+
+.listItem > a,
+.typeListItem > a,
+.detailItem > a {
+  font-size: 1em;
+}
+
+.detailItem > p {
+  margin: 1%;
+  font-size: 1em;
+}
+
+.detailedData > p,
+.simpleData > p {
+  margin: 0;
+  font-size: 1em;
 }
