@@ -1,26 +1,27 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import Axios from "axios";
 
-export const useFetch = (url) => {
-  const [fetchedData, setFetchedData] = useState(null);
-
-  //   useEffect(() => {
-  //     async function getFetch() {
-  //       const res = await axios.get(url);
-  //       console.log(res);
-  //       setFetchedData(res.data);
-  //     }
-  //     getFetch();
-  //   });
-  //   return fetchedData;
-  // };
+export const useFetch = (url, dependencyArray = []) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [fetchedData, setFetchedData] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(url)
-      .then(console.log("lai"))
-      .then((response) => setFetchedData(response.data))
-      .catch((err) => console.error(err));
-  }, []);
-  return fetchedData;
+    let mounted = true;
+    const loadData = async () => {
+      const response = await Axios.get(url);
+      if (mounted) {
+        setFetchedData(response.data);
+        if (fetchedData !== []) {
+          setIsLoading(false);
+        }
+      }
+    };
+    loadData();
+
+    return () => {
+      mounted = false;
+    };
+  }, dependencyArray);
+
+  return [isLoading, fetchedData];
 };
