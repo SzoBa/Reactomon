@@ -8,10 +8,9 @@ const PokemonDetail = (props) => {
     setId(props.match.params.id);
   }
 
-  const [
-    isLoading,
-    details,
-  ] = useFetch(`https://pokeapi.co/api/v2/pokemon/${id}`, [id]);
+  const [isLoading, details] = useFetch(
+    `https://pokeapi.co/api/v2/pokemon/${id}`
+  );
 
   if (!isLoading) {
     return Object.entries(details).map(([key, value], index) => (

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Axios from "axios";
 
-export const useFetch = (url, dependencyArray = []) => {
+export const useFetch = (url) => {
   const [isLoading, setIsLoading] = useState(true);
   const [fetchedData, setFetchedData] = useState([]);
 
@@ -21,7 +21,7 @@ export const useFetch = (url, dependencyArray = []) => {
     return () => {
       mounted = false;
     };
-  }, dependencyArray);
+  }, [url, fetchedData]);
 
   return [isLoading, fetchedData];
 };
