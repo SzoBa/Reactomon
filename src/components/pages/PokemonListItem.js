@@ -8,9 +8,10 @@ const ListItemCard = styled.div`
   border: solid black 2px;
   border-radius: 20px;
   height: 100px;
-  width: 300px;
+  width: 175px;
   text-align: center;
   margin: 5px 0;
+  padding: 10px;
   background-color: rgba(255, 115, 110, 0.9);
   box-shadow: 8px 8px 16px 0 rgba(0, 0, 0, 0.4);
   transition: 0.3s;
@@ -46,11 +47,14 @@ const PokemonListItem = (props) => {
 
   return (
     <ListItemCard>
-      <ListItemText>
-        Name: {name} -{" "}
-        <ListItemLink href={`/pokemon/${id}`}>Details</ListItemLink> - Original
-        url: {url}
-      </ListItemText>
+      <React.Fragment>
+        <ListItemText>Name: {name}</ListItemText>
+        <ListItemText>
+          <ListItemLink href={`/pokemon/${id}`}>Details</ListItemLink>
+        </ListItemText>
+        {/* <ListItemText>Original url: {url}</ListItemText> */}
+        <button>Catch</button>
+      </React.Fragment>
     </ListItemCard>
   );
 };

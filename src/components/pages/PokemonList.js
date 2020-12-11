@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const PokemonListContainer = styled.div`
   display: inline-flex;
-  margin: 2% 3%;
+  margin: 1% 2.5%;
 `;
 
 const PokemonList = (props) => {
