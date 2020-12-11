@@ -1,15 +1,21 @@
 import React from "react";
 import PokemonListItem from "./PokemonListItem";
 import { useFetch } from "../../hooks/useFetch";
+import styled from "styled-components";
+
+const PokemonListContainer = styled.div`
+  display: inline-flex;
+  margin: 2% 3%;
+`;
 
 const PokemonList = (props) => {
   const [isLoading, pokemons] = useFetch("https://pokeapi.co/api/v2/pokemon");
 
   if (!isLoading) {
     return pokemons.results.map((pokemon, index) => (
-      <div key={index}>
+      <PokemonListContainer key={index}>
         <PokemonListItem pokemon={pokemon} />
-      </div>
+      </PokemonListContainer>
     ));
   } else {
     return (
