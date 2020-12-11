@@ -2,6 +2,23 @@ import React from "react";
 import styled from "styled-components";
 import "../../App.css";
 
+const ListItemCard = styled.div`
+  font-family: arial;
+  /* display: inline-block; */
+  border: solid black 2px;
+  border-radius: 20px;
+  height: 100px;
+  width: 300px;
+  text-align: center;
+  margin: 5px 0;
+  background-color: rgba(255, 115, 110, 0.9);
+  box-shadow: 8px 8px 16px 0 rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
+  &:hover {
+    box-shadow: 16px 16px 32px 0 rgba(0, 0, 0, 0.9);
+  }
+`;
+
 const ListItemText = styled.p`
   font-size: 1em;
   margin: 1%;
@@ -28,14 +45,35 @@ const PokemonListItem = (props) => {
   const id = url.match("/[0-9]+/").toString().replaceAll("/", "");
 
   return (
-    <ListItemText>
-      Name: {name} -{" "}
-      <ListItemLink href={`/pokemon/${id}`}>Details</ListItemLink> - Original
-      url: {url}
-    </ListItemText>
+    <ListItemCard>
+      <ListItemText>
+        Name: {name} -{" "}
+        <ListItemLink href={`/pokemon/${id}`}>Details</ListItemLink> - Original
+        url: {url}
+      </ListItemText>
+    </ListItemCard>
   );
 };
 
 export default PokemonListItem;
 
 // </ListItemText><ListItemLink to={{ pathname: `/pokemon/${id}` }}>Details</ListItemLink> -
+
+// .actor_name {
+//   margin-top: 10px;
+//   font-size: 0.8em;
+// }
+// .actor_shows {
+//   font-size: 1.5em;
+//   font-weight: 900;
+// }
+// .alive {
+//   background-color: forestgreen;
+// }
+// .dead {
+//   background-color: black;
+//   color: white !important;
+// }
+// .no_info {
+//   background-color: gold;
+// }
