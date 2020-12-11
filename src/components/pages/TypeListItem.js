@@ -1,8 +1,29 @@
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { ExternalLink } from "react-external-link";
 import "../../App.css";
+import styled from "styled-components";
+
+const ListItemText = styled.p`
+  font-size: 1em;
+  margin: 1%;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-align: center;
+`;
+
+const ListItemLink = styled.a`
+  margin: 1%;
+  font-size: 1em;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-align: center;
+  &::hover {
+    color: palevioletred;
+  }
+`;
 
 class TypeListItem extends Component {
   render() {
@@ -10,10 +31,10 @@ class TypeListItem extends Component {
     const test = url;
 
     return (
-      <p className="typeListItem">
-        Type name: {name} - Original detail url:{" "}
-        <ExternalLink href={test}>Go to page</ExternalLink>
-      </p>
+      <ListItemText>
+        Type name: {name} - Original detail:{" "}
+        <ListItemLink href={test}>Go to page</ListItemLink>
+      </ListItemText>
     );
   }
 }
@@ -23,3 +44,5 @@ TypeListItem.propTypes = {
 };
 
 export default TypeListItem;
+
+// <ExternalLink href={test}>Go to page</ExternalLink>
