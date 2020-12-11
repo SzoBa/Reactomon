@@ -1,6 +1,7 @@
 import React from "react";
 import "../../App.css";
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
 
 const NavbarMain = styled.div`
   text-align: center;
@@ -27,6 +28,8 @@ const NavbarLink = styled.a`
   font-weight: bold;
   font-size: 2em;
   border-radius: 20px;
+  visibility: ${(props) =>
+    useLocation().pathname === props.href ? "hidden" : ""};
   &:hover {
     color: palevioletred;
   }
@@ -37,8 +40,11 @@ const Navbar = (props) => {
     <NavbarMain className="navBar">
       <NavbarTitle>Reactomon</NavbarTitle>
       <NavbarLinksContainer>
-        <NavbarLink href="/pokemons">Pokemons</NavbarLink>
-        <NavbarLink href="/types">Types</NavbarLink>
+        <React.Fragment>
+          <NavbarLink href="/pokemons">Pokemons</NavbarLink>
+          <NavbarLink href="/">Main Page</NavbarLink>
+          <NavbarLink href="/types">Types</NavbarLink>
+        </React.Fragment>
       </NavbarLinksContainer>
     </NavbarMain>
   );
