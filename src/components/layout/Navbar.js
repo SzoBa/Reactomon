@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "../../App.css";
 import styled from "styled-components";
 
@@ -28,6 +27,9 @@ const NavbarLink = styled.a`
   font-weight: bold;
   font-size: 2em;
   border-radius: 20px;
+  &::hover {
+    color: palevioletred;
+  }
 `;
 
 const Navbar = (props) => {
@@ -35,8 +37,8 @@ const Navbar = (props) => {
     <NavbarMain className="navBar">
       <NavbarTitle>Reactomon</NavbarTitle>
       <NavbarLinksContainer>
-        <NavbarLink to="/pokemons">Pokemons</NavbarLink>
-        <NavbarLink to="/types">Types</NavbarLink>
+        <NavbarLink href="/pokemons">Pokemons</NavbarLink>
+        <NavbarLink href="/types">Types</NavbarLink>
       </NavbarLinksContainer>
     </NavbarMain>
   );
