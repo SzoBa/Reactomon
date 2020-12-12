@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useFetch } from "../../hooks/useFetch";
 import SimpleItem from "./SimpleItem";
 import styled from "styled-components";
+import { ColorContext } from "../../ColorContext";
 
 const DetailsContainer = styled.div`
   display: flex;
@@ -38,7 +39,8 @@ const PokemonDetail = (props) => {
     `https://pokeapi.co/api/v2/pokemon/${id}`
   );
 
-  const [fontColor, setFontColor] = useState("white");
+  //if we pass a data to the provider, we can access it
+  const [fontColor, setFontColor] = useContext(ColorContext);
 
   if (!isLoading) {
     return (
@@ -46,19 +48,18 @@ const PokemonDetail = (props) => {
         <React.Fragment>
           <DetailsCard
             key={id}
-            onMouseEnter={() => setFontColor("rgba(255, 115, 110, 0.9)")}
-            onMouseLeave={() => setFontColor("white")}
+            onMouseEnter={() => {
+              setFontColor((prevColor) => "rgba(255, 115, 110, 0.9)");
+            }}
+            onMouseLeave={() => {
+              setFontColor((prevColor) => "white");
+            }}
           >
             {Object.entries(details).map(([key, value], index) =>
               typeof value === "number" ||
               typeof value === "string" ||
               typeof value === "boolean" ? (
-                <SimpleItem
-                  key={key}
-                  attribute={key}
-                  simpleData={value}
-                  color={fontColor}
-                />
+                <SimpleItem key={key} attribute={key} simpleData={value} />
               ) : (
                 ""
                 /*<DetailItem attribute={key} detailData={value} />*/
