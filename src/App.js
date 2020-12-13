@@ -9,6 +9,8 @@ import PokemonDetail from "./components/pages/PokemonDetail";
 import { ThemeProvider, css } from "styled-components";
 import MainBody from "./elements/MainBody";
 import { ColorProvider } from "./ColorContext";
+import CatchedList from "./components/pages/CatchedList";
+import { CatchPokemonProvider } from "./CatchPokemonContext";
 
 const theme = {
   primary: "junk",
@@ -18,17 +20,20 @@ const theme = {
 const App = (props) => {
   return (
     <ThemeProvider theme={theme}>
-      <ColorProvider>
-        <Router>
-          <MainBody>
-            <Navbar />
-            <Route exact path="/" component={MainPage} />
-            <Route path="/pokemons" component={PokemonList} />
-            <Route path="/types" component={TypeList} />
-            <Route path="/pokemon/:id" component={PokemonDetail} />
-          </MainBody>
-        </Router>
-      </ColorProvider>
+      <CatchPokemonProvider>
+        <ColorProvider>
+          <Router>
+            <MainBody>
+              <Navbar />
+              <Route exact path="/" component={MainPage} />
+              <Route path="/pokemons" component={PokemonList} />
+              <Route path="/types" component={TypeList} />
+              <Route path="/pokemon/:id" component={PokemonDetail} />
+              <Route path="/catched" component={CatchedList} />
+            </MainBody>
+          </Router>
+        </ColorProvider>
+      </CatchPokemonProvider>
     </ThemeProvider>
   );
 };
