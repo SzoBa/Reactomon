@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import "../../App.css";
+import { CatchPokemonContext } from "../../CatchPokemonContext";
 
 const ListItemCard = styled.div`
   font-family: arial;
@@ -44,6 +45,20 @@ const ListItemLink = styled.a`
 const PokemonListItem = (props) => {
   const { name, url } = props.pokemon;
   const id = url.match("/[0-9]+/").toString().replaceAll("/", "");
+  const [buttonText, setButtontext] = useState("Catch");
+  const [collectedPokemons, catchPokemon] = useContext(CatchPokemonContext);
+
+  const addPokemonToContext = () => {
+    if (
+      collectedPokemons.filter((pokemon) => pokemon.name === props.pokemon.name)
+        .length < 1
+    ) {
+      catchPokemon((prevPokemons) => [...prevPokemons, props.pokemon]);
+      setButtontext("Catched");
+    } else {
+      setButtontext("Already catched!");
+    }
+  };
 
   return (
     <ListItemCard>
@@ -53,7 +68,11 @@ const PokemonListItem = (props) => {
           <ListItemLink href={`/pokemon/${id}`}>Details</ListItemLink>
         </ListItemText>
         {/* <ListItemText>Original url: {url}</ListItemText> */}
-        <button>Catch</button>
+        {props.button ? (
+          <button onClick={addPokemonToContext}>{buttonText}</button>
+        ) : (
+          ""
+        )}
       </React.Fragment>
     </ListItemCard>
   );
@@ -62,22 +81,3 @@ const PokemonListItem = (props) => {
 export default PokemonListItem;
 
 // </ListItemText><ListItemLink to={{ pathname: `/pokemon/${id}` }}>Details</ListItemLink> -
-
-// .actor_name {
-//   margin-top: 10px;
-//   font-size: 0.8em;
-// }
-// .actor_shows {
-//   font-size: 1.5em;
-//   font-weight: 900;
-// }
-// .alive {
-//   background-color: forestgreen;
-// }
-// .dead {
-//   background-color: black;
-//   color: white !important;
-// }
-// .no_info {
-//   background-color: gold;
-// }
