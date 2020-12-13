@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { ColorContext } from "../../contexts/ColorContext";
 import { CatchPokemonContext } from "../../contexts/CatchPokemonContext";
 import AppTheme from "../../contexts/ThemeStyle";
-import ThemeContext from "../../contexts/ThemeContext";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 const DetailsContainer = styled.div`
   display: flex;

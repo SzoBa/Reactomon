@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import background from "../components/images/background.jpg";
 
 export const MainBody = styled.div`
-  background: url(${background}) no-repeat fixed;
+  background: url(${(props) => props.currentTheme.backgroundImage}) no-repeat
+    fixed;
+  color: ${(props) => props.currentTheme.textColor};
   background-size: cover;
   min-height: 100%;
   width: 100%;

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { CatchPokemonContext } from "../../contexts/CatchPokemonContext";
 import AppTheme from "../../contexts/ThemeStyle";
-import ThemeContext from "../../contexts/ThemeContext";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 const ListItemCard = styled.div`
   font-family: arial;

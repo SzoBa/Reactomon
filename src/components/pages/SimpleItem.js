@@ -2,7 +2,7 @@ import { useContext } from "react";
 import styled from "styled-components";
 import { ColorContext } from "../../contexts/ColorContext";
 import AppTheme from "../../contexts/ThemeStyle";
-import ThemeContext from "../../contexts/ThemeContext";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 const SimpleAttributeText = styled.p`
   font-size: 1.2em;

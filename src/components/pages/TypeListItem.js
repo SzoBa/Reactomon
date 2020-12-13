@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import AppTheme from "../../contexts/ThemeStyle";
-import ThemeContext from "../../contexts/ThemeContext";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 const ListItemCard = styled.div`
   font-family: arial;

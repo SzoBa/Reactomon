@@ -1,5 +1,13 @@
-import { createContext } from "react";
+import { useState, createContext } from "react";
 
-const ThemeContext = createContext(["junk", () => {}]);
+export const ThemeContext = createContext(["junk", () => {}]);
 
-export default ThemeContext;
+export const ThemeContextProvider = (props) => {
+  const theme = useState("junk");
+
+  return (
+    <ThemeContext.Provider value={theme}>
+      {props.children}
+    </ThemeContext.Provider>
+  );
+};

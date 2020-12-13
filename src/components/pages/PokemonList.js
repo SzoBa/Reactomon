@@ -3,7 +3,7 @@ import PokemonListItem from "./PokemonListItem";
 import { useFetch } from "../../hooks/useFetch";
 import styled from "styled-components";
 import AppTheme from "../../contexts/ThemeStyle";
-import ThemeContext from "../../contexts/ThemeContext";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 const PokemonListContainer = styled.div`
   display: inline-flex;
