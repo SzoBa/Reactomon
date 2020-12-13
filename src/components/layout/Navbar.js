@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../../App.css";
 import styled from "styled-components";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import AppTheme from "../../contexts/ThemeStyle";
+import ThemeContext from "../../contexts/ThemeContext";
 
 const NavbarMain = styled.div`
   text-align: center;
 `;
 
 const NavbarTitle = styled.h1`
-  color: white;
+  color: ${(props) => props.currentTheme.textColor};
   font-size: 4em;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   padding-left: 3%;
@@ -20,7 +22,7 @@ const NavbarLinksContainer = styled.div`
   padding: 5px;
 `;
 
-const NavbarLink = styled.a`
+const NavbarLink = styled(Link)`
   color: white;
   text-decoration: none;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -36,16 +38,21 @@ const NavbarLink = styled.a`
 `;
 
 const Navbar = (props) => {
+  const theme = useContext(ThemeContext)[0];
+  const currentTheme = AppTheme[theme];
+
   return (
     <NavbarMain className="navBar">
-      <NavbarTitle>Reactomon</NavbarTitle>
+      <NavbarTitle currentTheme={currentTheme}>Reactomon</NavbarTitle>
       <NavbarLinksContainer>
         <React.Fragment>
-          <NavbarLink href="/">Main Page</NavbarLink>
-          <NavbarLink href="/pokemons">Pokemons</NavbarLink>
-          <NavbarLink href="/types">Types</NavbarLink>
-          <NavbarLink href="/catched">Catched</NavbarLink>
-          <NavbarLink href="/">About</NavbarLink>
+          <nav>
+            <NavbarLink to="/">Main Page</NavbarLink>
+            <NavbarLink to="/pokemons">Pokemons</NavbarLink>
+            <NavbarLink to="/types">Types</NavbarLink>
+            <NavbarLink to="/catched">Catched</NavbarLink>
+            <NavbarLink to="/">About</NavbarLink>
+          </nav>
         </React.Fragment>
       </NavbarLinksContainer>
     </NavbarMain>
