@@ -23,7 +23,7 @@ const NavbarLinksContainer = styled.div`
 `;
 
 const NavbarLink = styled(Link)`
-  color: ${(props) => props.currentTheme.textColor};
+  color: ${(props) => props.currenttheme.textColor};
   text-decoration: none;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   padding: 10px;
@@ -33,7 +33,7 @@ const NavbarLink = styled(Link)`
   visibility: ${(props) =>
     useLocation().pathname === props.to ? "hidden" : ""};
   &:hover {
-    color: palevioletred;
+    color: ${(props) => props.currenttheme.textColorOnHover};
   }
 `;
 
@@ -46,19 +46,19 @@ const Navbar = (props) => {
       <NavbarTitle currentTheme={currentTheme}>Reactomon</NavbarTitle>
       <NavbarLinksContainer>
         <React.Fragment>
-          <NavbarLink currentTheme={currentTheme} to="/">
+          <NavbarLink currenttheme={currentTheme} to="/">
             Main Page
           </NavbarLink>
-          <NavbarLink currentTheme={currentTheme} to="/pokemons">
+          <NavbarLink currenttheme={currentTheme} to="/pokemons">
             Pokemons
           </NavbarLink>
-          <NavbarLink currentTheme={currentTheme} to="/types">
+          <NavbarLink currenttheme={currentTheme} to="/types">
             Types
           </NavbarLink>
-          <NavbarLink currentTheme={currentTheme} to="/catched">
+          <NavbarLink currenttheme={currentTheme} to="/catched">
             Catched
           </NavbarLink>
-          <NavbarLink currentTheme={currentTheme} to="/#">
+          <NavbarLink currenttheme={currentTheme} to="/#">
             About
           </NavbarLink>
           <ThemeToggler></ThemeToggler>

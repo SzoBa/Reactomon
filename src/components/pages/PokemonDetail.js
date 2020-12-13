@@ -22,7 +22,8 @@ const DetailsCard = styled.div`
   text-align: center;
   margin: 15px 0;
   padding: 10px;
-  background-color: rgba(255, 115, 110, 0.9);
+  background-color: ${(props) => props.currentTheme.cardBackgroundColor};
+  opacity: 0.9;
   box-shadow: 8px 8px 16px 0 rgba(0, 0, 0, 0.4);
   transition: 0.3s;
   &:hover {
@@ -30,6 +31,12 @@ const DetailsCard = styled.div`
     background-color: white;
     transition: 1s;
   }
+`;
+
+const CatchButton = styled.button`
+  padding: 3px;
+  border-radius: 10px;
+  font-weight: bold;
 `;
 
 const PokemonDetail = (props) => {
@@ -71,6 +78,7 @@ const PokemonDetail = (props) => {
         <React.Fragment>
           <DetailsCard
             key={id}
+            currentTheme={currentTheme}
             onMouseEnter={() => {
               setFontColor((prevColor) => "rgba(255, 115, 110, 0.9)");
             }}
@@ -88,7 +96,9 @@ const PokemonDetail = (props) => {
                 /*<DetailItem attribute={key} detailData={value} />*/
               )
             )}
-            <button onClick={addPokemonToContext}>{buttonText}</button>
+            <CatchButton onClick={addPokemonToContext}>
+              {buttonText}
+            </CatchButton>
           </DetailsCard>
         </React.Fragment>
       </DetailsContainer>

@@ -12,7 +12,8 @@ const ListItemCard = styled.div`
   width: 250px;
   text-align: center;
   margin: 5px 0;
-  background-color: rgba(255, 115, 110, 0.9);
+  background-color: ${(props) => props.currentTheme.cardBackgroundColor};
+  opacity: 0.9;
   box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
   transition: 0.3s;
   &:hover {
@@ -69,7 +70,7 @@ const TypeListItem = (props) => {
   const currentTheme = AppTheme[theme];
 
   return (
-    <ListItemCard>
+    <ListItemCard currentTheme={currentTheme}>
       <ListItemText name={name}>
         Type name:{" "}
         <TypeName index={props.index} name={name}>

@@ -15,7 +15,8 @@ const ListItemCard = styled.div`
   text-align: center;
   margin: 5px 0;
   padding: 10px;
-  background-color: rgba(255, 115, 110, 0.9);
+  background-color: ${(props) => props.currentTheme.cardBackgroundColor};
+  opacity: 0.9;
   box-shadow: 8px 8px 16px 0 rgba(0, 0, 0, 0.4);
   transition: 0.3s;
   &:hover {
@@ -44,6 +45,12 @@ const ListItemLink = styled(Link)`
   }
 `;
 
+const CatchButton = styled.button`
+  padding: 3px;
+  border-radius: 10px;
+  font-weight: bold;
+`;
+
 const PokemonListItem = (props) => {
   const { name, url } = props.pokemon;
   const id = url.match("/[0-9]+/").toString().replaceAll("/", "");
@@ -66,7 +73,7 @@ const PokemonListItem = (props) => {
   };
 
   return (
-    <ListItemCard>
+    <ListItemCard currentTheme={currentTheme}>
       <React.Fragment>
         <ListItemText>Name: {name}</ListItemText>
         <ListItemText>
@@ -74,7 +81,7 @@ const PokemonListItem = (props) => {
         </ListItemText>
         {/* <ListItemText>Original url: {url}</ListItemText> */}
         {props.button ? (
-          <button onClick={addPokemonToContext}>{buttonText}</button>
+          <CatchButton onClick={addPokemonToContext}>{buttonText}</CatchButton>
         ) : (
           ""
         )}

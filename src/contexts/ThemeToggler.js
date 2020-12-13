@@ -4,15 +4,15 @@ import { ThemeContext } from "./ThemeContext";
 import AppTheme from "./ThemeStyle";
 
 const ThemeTogglerButton = styled.button`
-  color: ${(props) => props.currentTheme.togglerTextColor};
-  background: ${(props) => props.currentTheme.togglerTextBackgroundColor};
   font-size: 1em;
   padding: 7px 10px;
   border-radius: 10px;
-  border: 1px solid green;
+  border: 1px solid grey;
   cursor: pointer;
   height: 75%;
   align-self: center;
+  color: ${(props) => props.currentTheme.togglerTextColor};
+  background: ${(props) => props.currentTheme.togglerTextBackgroundColor};
   &:hover {
     color: ${(props) => props.currentTheme.togglerTextColorHover};
     background: ${(props) =>
@@ -40,7 +40,7 @@ const ThemeToggler = () => {
       currentTheme={currentTheme}
       title="switch theme"
     >
-      Theme: <ButtonText>{themeMode === "junk" ? "Green" : "Blue"}</ButtonText>
+      Theme: <ButtonText>{themeMode === "junk" ? "Grey" : "Blue"}</ButtonText>
     </ThemeTogglerButton>
   );
 };

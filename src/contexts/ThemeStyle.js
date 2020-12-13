@@ -4,24 +4,30 @@ import main from "../components/images/main.jpg";
 
 const AppTheme = {
   junk: {
-    togglerTextColor: "green",
+    togglerTextColor: "grey",
     togglerTextBackgroundColor: "white",
     togglerTextColorHover: "white",
-    togglerTextBackgroundColorHover: "green",
+    togglerTextBackgroundColorHover: "grey",
     backgroundImage: background1,
     mainImage: main,
 
     textColor: "grey",
+    textColorOnHover: "black",
+
+    cardBackgroundColor: "grey",
   },
   blade: {
-    togglerTextColor: "blue",
+    togglerTextColor: "lightblue",
     togglerTextBackgroundColor: "white",
     togglerTextColorHover: "white",
-    togglerTextBackgroundColorHover: "blue",
+    togglerTextBackgroundColorHover: "lightblue",
     backgroundImage: background2,
     mainImage: main,
 
     textColor: "lightblue",
+    textColorOnHover: "palevioletred",
+
+    cardBackgroundColor: "palevioletred",
   },
 };
 
