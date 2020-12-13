@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import "../../App.css";
 import styled from "styled-components";
 
 const ListItemCard = styled.div`

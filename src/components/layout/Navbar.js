@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import "../../App.css";
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
 import AppTheme from "../../contexts/ThemeStyle";

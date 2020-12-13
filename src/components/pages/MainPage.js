@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import "../../App.css";
 import ThemeToggler from "../../contexts/ThemeToggler";
 
 const MainPageH1 = styled.h1`
