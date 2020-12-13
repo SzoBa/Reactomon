@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { ColorContext } from "../../ColorContext";
+import { ColorContext } from "../../contexts/ColorContext";
 
 const SimpleAttributeText = styled.p`
   font-size: 1.2em;
@@ -17,7 +17,7 @@ const AttributeName = styled.span`
 `;
 
 const SimpleItem = (props) => {
-  const [fontColor, setFontColor] = useContext(ColorContext);
+  const fontColor = useContext(ColorContext)[0];
 
   return (
     <div className="simpleData">

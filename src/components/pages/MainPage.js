@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import "../../App.css";
+import ThemeToggler from "../../contexts/ThemeToggler";
 
 const MainPageH1 = styled.h1`
   margin-top: 3%;
@@ -24,6 +25,7 @@ const MainPage = (props) => {
       <MainPageText>
         Choose from the links above to navigate to the desired page
       </MainPageText>
+      <ThemeToggler></ThemeToggler>
     </div>
   );
 };

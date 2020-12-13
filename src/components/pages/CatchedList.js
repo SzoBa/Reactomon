@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { CatchPokemonContext } from "../../CatchPokemonContext";
 import PokemonListItem from "./PokemonListItem";
+import { CatchPokemonContext } from "../../contexts/CatchPokemonContext";
 
 const CatchedListContainer = styled.div`
   display: inline-flex;
@@ -9,7 +9,7 @@ const CatchedListContainer = styled.div`
 `;
 
 const CatchedList = (props) => {
-  const [collectedPokemons, catchPokemon] = useContext(CatchPokemonContext);
+  const collectedPokemons = useContext(CatchPokemonContext)[0];
 
   return collectedPokemons.map((pokemon, index) => (
     <CatchedListContainer key={index}>

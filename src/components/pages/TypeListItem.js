@@ -77,7 +77,6 @@ const TypeListItem = (props) => {
           Go to page
         </ListItemLink>
       </ListItemText>
-      <button>Catch</button>
     </ListItemCard>
   );
 };
