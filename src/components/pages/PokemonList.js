@@ -14,7 +14,7 @@ const PokemonList = (props) => {
   if (!isLoading) {
     return pokemons.results.map((pokemon, index) => (
       <PokemonListContainer key={index}>
-        <PokemonListItem pokemon={pokemon} />
+        <PokemonListItem pokemon={pokemon} button={true} />
       </PokemonListContainer>
     ));
   } else {
