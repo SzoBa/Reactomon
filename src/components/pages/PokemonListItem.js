@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import "../../App.css";
-import { CatchPokemonContext } from "../../CatchPokemonContext";
+import { CatchPokemonContext } from "../../contexts/CatchPokemonContext";
 
 const ListItemCard = styled.div`
   font-family: arial;
@@ -29,7 +30,7 @@ const ListItemText = styled.p`
   text-align: center;
 `;
 
-const ListItemLink = styled.a`
+const ListItemLink = styled(Link)`
   margin: 1%;
   font-size: 1em;
   font-weight: bold;
@@ -65,7 +66,7 @@ const PokemonListItem = (props) => {
       <React.Fragment>
         <ListItemText>Name: {name}</ListItemText>
         <ListItemText>
-          <ListItemLink href={`/pokemon/${id}`}>Details</ListItemLink>
+          <ListItemLink to={`/pokemon/${id}`}>Details</ListItemLink>
         </ListItemText>
         {/* <ListItemText>Original url: {url}</ListItemText> */}
         {props.button ? (

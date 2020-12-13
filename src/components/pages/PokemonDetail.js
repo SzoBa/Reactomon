@@ -2,7 +2,8 @@ import React, { useState, useContext } from "react";
 import { useFetch } from "../../hooks/useFetch";
 import SimpleItem from "./SimpleItem";
 import styled from "styled-components";
-import { ColorContext } from "../../ColorContext";
+import { ColorContext } from "../../contexts/ColorContext";
+import { CatchPokemonContext } from "../../contexts/CatchPokemonContext";
 
 const DetailsContainer = styled.div`
   display: flex;
@@ -14,7 +15,7 @@ const DetailsCard = styled.div`
   /* display: inline-block; */
   border: solid black 2px;
   border-radius: 20px;
-  height: 350px;
+  height: 375px;
   width: 500px;
   text-align: center;
   margin: 15px 0;
@@ -35,12 +36,29 @@ const PokemonDetail = (props) => {
     setId(props.match.params.id);
   }
 
-  const [isLoading, details] = useFetch(
-    `https://pokeapi.co/api/v2/pokemon/${id}`
-  );
+  const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+  const [isLoading, details] = useFetch(url);
 
   //if we pass a data to the provider, we can access it
-  const [fontColor, setFontColor] = useContext(ColorContext);
+  const setFontColor = useContext(ColorContext)[1];
+
+  const [buttonText, setButtontext] = useState("Catch");
+  const [collectedPokemons, catchPokemon] = useContext(CatchPokemonContext);
+
+  const addPokemonToContext = () => {
+    if (
+      collectedPokemons.filter((pokemon) => pokemon.name === details.name)
+        .length < 1
+    ) {
+      catchPokemon((prevPokemons) => [
+        ...prevPokemons,
+        { name: details.name, url: url + "/" },
+      ]);
+      setButtontext("Catched");
+    } else {
+      setButtontext("Already catched!");
+    }
+  };
 
   if (!isLoading) {
     return (
@@ -65,6 +83,7 @@ const PokemonDetail = (props) => {
                 /*<DetailItem attribute={key} detailData={value} />*/
               )
             )}
+            <button onClick={addPokemonToContext}>{buttonText}</button>
           </DetailsCard>
         </React.Fragment>
       </DetailsContainer>
