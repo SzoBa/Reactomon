@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import AppTheme from "../../contexts/ThemeStyle";
+import ThemeContext from "../../contexts/ThemeContext";
 
 const DetailedItemText = styled.p`
   font-size: 1em;
@@ -7,6 +9,9 @@ const DetailedItemText = styled.p`
 `;
 
 const DetailItem = (props) => {
+  const theme = useContext(ThemeContext)[0];
+  const currentTheme = AppTheme[theme];
+
   return Object.entries(props.detailData).map(([key, value]) => (
     <div className="detailedData" key={key}>
       <React.Fragment>

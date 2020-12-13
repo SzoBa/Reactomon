@@ -30,7 +30,7 @@ const NavbarLink = styled(Link)`
   font-size: 2em;
   border-radius: 20px;
   visibility: ${(props) =>
-    useLocation().pathname === props.href ? "hidden" : ""};
+    useLocation().pathname === props.to ? "hidden" : ""};
   &:hover {
     color: palevioletred;
   }

@@ -1,4 +1,7 @@
+import React, { useContext } from "react";
 import styled from "styled-components";
+import AppTheme from "../../contexts/ThemeStyle";
+import ThemeContext from "../../contexts/ThemeContext";
 import ThemeToggler from "../../contexts/ThemeToggler";
 
 const MainPageH1 = styled.h1`
@@ -18,6 +21,9 @@ const MainPageText = styled.p`
 `;
 
 const MainPage = (props) => {
+  const theme = useContext(ThemeContext)[0];
+  const currentTheme = AppTheme[theme];
+
   return (
     <div>
       <MainPageH1>This is the Main Page</MainPageH1>

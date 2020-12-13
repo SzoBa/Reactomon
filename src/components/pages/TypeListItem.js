@@ -1,5 +1,8 @@
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import AppTheme from "../../contexts/ThemeStyle";
+import ThemeContext from "../../contexts/ThemeContext";
 
 const ListItemCard = styled.div`
   font-family: arial;
@@ -61,6 +64,9 @@ const TypeName = styled.span`
 const TypeListItem = (props) => {
   const { name, url } = props.type;
   const test = url;
+
+  const theme = useContext(ThemeContext)[0];
+  const currentTheme = AppTheme[theme];
 
   return (
     <ListItemCard>

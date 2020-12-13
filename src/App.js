@@ -1,19 +1,31 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
-import ThemeContext from "./contexts/ThemeContext";
+import styled from "styled-components";
 import { ColorProvider } from "./contexts/ColorContext";
 import { CatchPokemonProvider } from "./contexts/CatchPokemonContext";
 import Navbar from "./components/layout/Navbar";
-import MainBody from "./elements/MainBody";
 import MainPage from "./components/pages/MainPage";
 import PokemonList from "./components/pages/PokemonList";
 import TypeList from "./components/pages/TypeList";
 import PokemonDetail from "./components/pages/PokemonDetail";
 import CatchedList from "./components/pages/CatchedList";
+import ThemeContext from "./contexts/ThemeContext";
+
+import background from "./components/images/background.jpg";
 
 const App = (props) => {
   const theme = useState("junk");
+
+  const MainBody = styled.div`
+    background: url(${background}) no-repeat fixed;
+    background-size: cover;
+    min-height: 100%;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+    box-sizing: border-box;
+  `;
 
   return (
     <ThemeContext.Provider value={theme}>

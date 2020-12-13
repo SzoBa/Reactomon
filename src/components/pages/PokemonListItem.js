@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { CatchPokemonContext } from "../../contexts/CatchPokemonContext";
+import AppTheme from "../../contexts/ThemeStyle";
+import ThemeContext from "../../contexts/ThemeContext";
 
 const ListItemCard = styled.div`
   font-family: arial;
@@ -47,6 +49,9 @@ const PokemonListItem = (props) => {
   const id = url.match("/[0-9]+/").toString().replaceAll("/", "");
   const [buttonText, setButtontext] = useState("Catch");
   const [collectedPokemons, catchPokemon] = useContext(CatchPokemonContext);
+
+  const theme = useContext(ThemeContext)[0];
+  const currentTheme = AppTheme[theme];
 
   const addPokemonToContext = () => {
     if (

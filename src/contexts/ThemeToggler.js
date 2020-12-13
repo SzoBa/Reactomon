@@ -2,26 +2,26 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import ThemeContext from "./ThemeContext";
 
-const ThemeTogglerButton = styled.span``;
+const ThemeTogglerButton = styled.button`
+  cursor: pointer;
+`;
 
 const ContainerDiv = styled.div`
   text-align: center;
-  color: white;
 `;
 
 const ThemeToggler = () => {
   const [themeMode, setThemeMode] = useContext(ThemeContext);
 
+  function changeTheme() {
+    setThemeMode(themeMode === "junk" ? "blade" : "junk");
+  }
+
   return (
     <div>
-      <ContainerDiv
-        style={{ cursor: "pointer" }}
-        onClick={() => {
-          setThemeMode(themeMode === "junk" ? "blade" : "junk");
-        }}
-      >
-        <ThemeTogglerButton title="switch theme">
-          {themeMode === "junk" ? "Old" : "New"}
+      <ContainerDiv>
+        <ThemeTogglerButton onClick={changeTheme} title="switch theme">
+          {themeMode === "junk" ? "Fancy" : "Retro"}
         </ThemeTogglerButton>
       </ContainerDiv>
     </div>

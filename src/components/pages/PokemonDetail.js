@@ -4,6 +4,8 @@ import SimpleItem from "./SimpleItem";
 import styled from "styled-components";
 import { ColorContext } from "../../contexts/ColorContext";
 import { CatchPokemonContext } from "../../contexts/CatchPokemonContext";
+import AppTheme from "../../contexts/ThemeStyle";
+import ThemeContext from "../../contexts/ThemeContext";
 
 const DetailsContainer = styled.div`
   display: flex;
@@ -44,6 +46,9 @@ const PokemonDetail = (props) => {
 
   const [buttonText, setButtontext] = useState("Catch");
   const [collectedPokemons, catchPokemon] = useContext(CatchPokemonContext);
+
+  const theme = useContext(ThemeContext)[0];
+  const currentTheme = AppTheme[theme];
 
   const addPokemonToContext = () => {
     if (
