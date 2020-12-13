@@ -41,9 +41,11 @@ const Navbar = (props) => {
       <NavbarTitle>Reactomon</NavbarTitle>
       <NavbarLinksContainer>
         <React.Fragment>
-          <NavbarLink href="/pokemons">Pokemons</NavbarLink>
           <NavbarLink href="/">Main Page</NavbarLink>
+          <NavbarLink href="/pokemons">Pokemons</NavbarLink>
           <NavbarLink href="/types">Types</NavbarLink>
+          <NavbarLink href="/catched">Catched</NavbarLink>
+          <NavbarLink href="/">About</NavbarLink>
         </React.Fragment>
       </NavbarLinksContainer>
     </NavbarMain>
