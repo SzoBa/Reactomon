@@ -24,20 +24,14 @@ export const useFetch = (url) => {
   // }, [url, fetchedData]);
 
   useEffect(() => {
-    let mounted = true;
     axios
       .get(url)
       .then((response) => {
-        if (mounted) {
-          setFetchedData(response.data);
-        }
+        setFetchedData(response.data);
       })
       .then(() => {
-        if (fetchedData !== []) {
-          setIsLoading(false);
-        }
+        setIsLoading(false);
       });
-    return () => (mounted = false);
-  }, [url, fetchedData]);
+  }, [url]);
   return [isLoading, fetchedData];
 };
