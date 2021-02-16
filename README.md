@@ -8,8 +8,6 @@
 
 #### nodejs with npm
 
-#### For further requirements, check the project backend's readme.
-
 ## Run:
 
 #### Use the following commands from the project directory:
